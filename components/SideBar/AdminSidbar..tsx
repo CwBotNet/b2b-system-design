@@ -45,11 +45,11 @@ const AdminSideBar = () => {
                         Products{" "}
                     </Link>
                     <Link
-                        href="#"
+                        href="/Admin/Members"
                         className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                     >
                         <Users className="h-4 w-4" />
-                        Customers
+                        Members
                     </Link>
                     <Link
                         href="#"
