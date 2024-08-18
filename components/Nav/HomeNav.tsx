@@ -65,8 +65,6 @@ const HomeNav = () => {
                         <DropdownMenuContent>
                             {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
                             {/* <DropdownMenuSeparator /> */}
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>Billing</DropdownMenuItem>
                             <DropdownMenuItem>
                                 <span className="btn btn-light text-neutral-500">
                                     Sign In
