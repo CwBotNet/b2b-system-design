@@ -25,8 +25,8 @@ import Link from "next/link";
 
 const HomeNav = () => {
     return (
-        <header className="sticky top-0 bg-neutral-100 p-2 shadow z-50">
-            <div className="flex items-center justify-between mx-auto max-w-7xl">
+        <header className="sticky top-0 bg-[#f8f5f4] p-2 shadow z-50">
+            <div className="flex items-center justify-evenly mx-auto max-w-7xl">
                 <div>
                     <Image alt="" src={logo} height={1400} width={1400} className="w-[5rem]" />
                 </div>
