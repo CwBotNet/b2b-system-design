@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <section className="min-h-screen bg-gray-50">
         <HomeNav />
-        <main className=" flex flex-col items-center justify-center h-full">
+        <main className=" flex flex-col items-center justify-center h-full gap-y-8 space-y-56">
           <HeroSection />
           <CategorySeection />
         </main>

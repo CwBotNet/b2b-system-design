@@ -33,7 +33,7 @@ const imageLink = [
 const HeroSection = () => {
     return (
         <>
-            <section className="w-full">
+            <section className="w-full h-full">
                 <div className="h-[580px] w-full flex justify-center items-center">
                     <SwipeCarousel />
                 </div>
