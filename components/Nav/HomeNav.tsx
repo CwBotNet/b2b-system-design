@@ -53,7 +53,7 @@ const HomeNav = () => {
 
                     <div className="lg:flex text-sm gap-x-4 cursor-pointe font-semibold hidden">
                         <Link className="hover:underline hover:underline-offset-2 " href={"#"}>About us</Link>
-                        <Link className="hover:underline hover:underline-offset-2 " href={"#"}>Advertise With Us</Link>
+                        <Link className="hover:underline hover:underline-offset-2 " href={"/membership"}>Advertise With Us</Link>
                         <Link className="hover:underline hover:underline-offset-2 " href={"#"}>Contact</Link>
                     </div>
                 </div>
