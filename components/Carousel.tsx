@@ -36,7 +36,7 @@ export function CarouselPlugin() {
         >
             <CarouselContent>
                 {imgs.map((img, index) => (
-                    <CarouselItem key={index} className=" flex justify-center h-[720px] ">
+                    <CarouselItem key={index} className=" flex justify-center md:h-[420px] mg:h-[720px] ">
                         <Image alt="crousel images" width={1080} height={1080} className=" w-full object-cover font-semibold" src={img} />
                     </CarouselItem>
                 ))}
