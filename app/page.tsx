@@ -4,6 +4,9 @@ import HomeNav from "@/components/Nav/HomeNav";
 import HeroSection from "@/components/HeroSection";
 import CategorySeection from "@/components/Category";
 import Link from "next/link";
+import WebMarketingSection from "@/components/WebMarketingSection";
+import StatsSection from "@/components/Stats";
+import TestimonialSection from "@/components/Testimonails";
 export default function Home() {
   return (
     <>
@@ -11,7 +14,10 @@ export default function Home() {
         <HomeNav />
         <main className=" flex flex-col items-center justify-center h-full gap-y-8 space-y-56">
           <HeroSection />
+          <WebMarketingSection />
           <CategorySeection />
+          <StatsSection />
+          <TestimonialSection />
         </main>
 
         <div className="bg-[#f8f5f4]">

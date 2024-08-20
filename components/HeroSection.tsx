@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"
 import { SwipeCarousel } from "./SwipeCrousal";
+import CarouselSection from "./Carousel";
 
 const imageLink = [
     {
@@ -34,9 +35,8 @@ const HeroSection = () => {
     return (
         <>
             <section className="w-full h-full">
-                <div className="h-[580px] w-full flex justify-center items-center">
-                    <SwipeCarousel />
-                </div>
+                <CarouselSection />
+
             </section>
         </>
     );
