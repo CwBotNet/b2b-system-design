@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "indianexportwebmart.com",
       },
+      {
+        protocol: "https",
+        hostname: "flagcdn.com",
+      },
     ],
   },
 };

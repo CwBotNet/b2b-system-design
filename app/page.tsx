@@ -6,6 +6,8 @@ import CategorySeection from "@/components/Category";
 import WebMarketingSection from "@/components/WebMarketingSection";
 import StatsSection from "@/components/Stats";
 import TestimonialSection from "@/components/Testimonails";
+import CountrySupliers from "@/components/Suppliers/CountrySupliers";
+import LeadScroller from "@/components/LeadScroller/LeadScroller";
 export default function Home() {
   return (
     <>
@@ -16,6 +18,8 @@ export default function Home() {
           <CategorySeection />
           <StatsSection />
           <TestimonialSection />
+          <CountrySupliers />
+          <LeadScroller />
         </main>
       </section >
 
