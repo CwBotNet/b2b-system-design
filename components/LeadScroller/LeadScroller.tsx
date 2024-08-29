@@ -1,70 +1,76 @@
-"use client"
 import { Card, CardContent, CardHeader } from "../ui/card";
-import { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion"
+import VerticalScroll from "../Animation/VerticalScroll";
+import { domasticLeads, interNationLeads } from "@/app/utils";
+import Image from "next/image";
 const LeadScroller = () => {
 
-    const controls = useAnimation();
 
-    useEffect(() => {
-        const scrollAnimation = async () => {
-            while (true) {
-                await controls.start({
-                    y: [0, -1000],
-                    transition: {
-                        duration: 10,
-                        ease: "linear"
-                    }
-                });
-
-                await controls.start({
-                    y: 0,
-                    transition: { duration: 0 }
-                })
-            }
-        }
-        scrollAnimation()
-    }, [controls])
 
     return (
         <>
-            <div className="space-x-6  flex flex-col justify-center items-center  gap-y-12">
+            <div className="space-x-6 pb-24  flex flex-col justify-center items-center  gap-y-12">
                 <h1 className="text-4xl font-bold tracking-wider">Leads</h1>
-                <div className="flex gap-x-6">
+                <div className="md:flex gap-x-6">
                     <div>
-                        <div
+                        <CardHeader
                             className="text-center  bg-none z-50">
                             <h1>Domastics leads</h1>
 
-                        </div>
-                        <Card className=" h-72 overflow-y-auto w-[40vw]">
-                            <CardContent className="space-y-4">
-                                {Array.from({ length: 100 }).map((_, idx) => (
+                        </CardHeader>
+                        <Card className=" h-96 overflow-y-auto md:w-[40vw] scroll-smooth text-xs">
 
-                                    <motion.div key={idx} className="flex justify-between border p-2 rounded-md">
-                                        <div className="flex">
-                                            <span>flag image</span> |
-                                            <p>Text</p>|
-                                            <p>Text</p>|
-                                            <p>Text</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
+                            <CardContent className="">
+                                <div className="flex flex-col gap-3 justify-center border-none p-2 rounded-md ">
+                                    <VerticalScroll>
+
+                                        {domasticLeads.map((item, idx) => (
+                                            <div key={idx} className="flex p-3 mb-2 justify-between border rounded-sm items-center ">
+                                                <span className="flex items-center gap-x-4">
+                                                    <Image src={`https://flagcdn.com/h80/${item.flag}.png`} height={40} width={40} alt={item.country} className="rounded-full" />
+                                                    {item.country}</span> |
+                                                <p>{item.product}</p>|
+                                                <p>₹ {item.price}</p>|
+                                                <p>{item.date}</p>
+                                            </div>
+
+                                        ))}
+                                    </VerticalScroll>
+                                </div>
+
                             </CardContent>
                         </Card>
                     </div>
                     <div>
-                        <Card className="w-[40vw] h-64 overflow-y-auto">
-                            <CardHeader className="text-center">
-                                <h1>Internationl Leads</h1>
-                            </CardHeader>
-                            <CardContent>
+                        <CardHeader
+                            className="text-center  bg-none z-50">
+                            <h1>International leads</h1>
+
+                        </CardHeader>
+                        <Card className=" h-96 overflow-y-auto md:w-[40vw] scroll-smooth text-xs">
+
+                            <CardContent className="">
+                                <div className="flex flex-col gap-3 justify-center border-none p-2 rounded-md">
+                                    <VerticalScroll>
+
+                                        {interNationLeads.map((item, idx) => (
+                                            <div key={idx} className="flex p-3 mb-2 justify-between border rounded-sm items-center">
+                                                <span className="flex items-center gap-x-4">
+                                                    <Image src={`https://flagcdn.com/h80/${item.flag}.png`} height={40} width={40} alt={item.country} className="rounded-full" />
+                                                    {item.country}</span> |
+                                                <p>{item.product}</p>|
+                                                <p>$ {item.price}</p>|
+                                                <p>{item.date}</p>
+                                            </div>
+
+                                        ))}
+                                    </VerticalScroll>
+                                </div>
 
                             </CardContent>
                         </Card>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }
