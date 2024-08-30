@@ -906,3 +906,271 @@ export const interNationLeads = [
     date: "2024-03",
   },
 ];
+
+export const categorys = [
+  {
+    name: "Health & Beauty",
+    items: [
+      "Personal Care Products",
+      "Personal Safety Equipment",
+      "Cosmetics",
+      "Dietary Supplements",
+      "Ayurvedic Medicines & Products",
+      "Perfumes & Fragrances",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1613892571289-39d5c649887a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Packaging & Paper",
+    items: [
+      "Packaging Boxes",
+      "Bottles",
+      "Disposable Products",
+      "Labels, Stickers & Tags",
+      "Adhesive Tapes",
+      "Plastic Packaging Materials",
+      "Paper Cups, Plates & Food Trays",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1708759284307-c58cdf64297b?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Gifts & Crafts",
+    items: [
+      "Decorative Items",
+      "God & Goddess Statues",
+      "Handicrafts",
+      "Wooden Handicrafts",
+      "Picture Frame",
+      "Artificial Crafts",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1546450659-b695aff1107c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Stainless Steel",
+    items: [
+      "Stainless Steel Ss Door Kit",
+      "Zinc Stainless Steel Door Kit",
+      "Steel Door Kit",
+      "Stainless Steel SS Fancy Leasur 004 Door Kit",
+    ],
+    image:
+      "https://plus.unsplash.com/premium_photo-1661962763926-0c978875ec3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Home Appliances",
+    items: [
+      "Home Cleaning Products",
+      "Incense, Incensory & Pooja Articles",
+      "Kitchenware and Cookware",
+      "Mosquito, Insect & Bugs Netting",
+      "Mops, Brooms & Dusters",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Energy & Power",
+    items: [
+      "Solar Products & Equipment",
+      "Oil & Lubricants",
+      "Inverters & Ups Equipment",
+      "Solar Panels",
+      "Batteries",
+      "Lubrication System & Equipment",
+      "Energy Management System",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Apparel & Fashion",
+    items: [
+      "T-shirt",
+      "Jeans",
+      "Leather Clothing",
+      "Mens Clothing",
+      "Shirt",
+      "Coat Pent",
+      "Kurtis",
+      "Sarees",
+      "Suit",
+      "Salwar Kamij",
+      "Burkha",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Chemicals",
+    items: [
+      "Food Chemicals",
+      "Diethylamine Chemicals",
+      "Plastic Chemicals",
+      "Dioctyl Phthalate",
+      "Actinium",
+      "Barium",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1575467678971-7cd5c2937dc6?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Machinery",
+    items: [
+      "Packaging Machine",
+      "Grinding & Milling Machinery",
+      "Agricultural Machines & Tools",
+      "Plant & Machinery",
+      "Construction Machinery",
+      "Liquid Filling Machines",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Electronics & Electrical Supplies",
+    items: [
+      "LED Products",
+      "Control Panel Boards",
+      "Wires/Cables & Accessories",
+      "Bulbs & Tubelight",
+      "Electric Motors & Engines",
+      "Transformer & Transformer Components",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Pipes, Tubes & Fittings",
+    items: [
+      "Alloy Steel Flanges",
+      "Alloy Steel Pipes & Tubes",
+      "Aluminium Pipes & Tubes",
+      "Brass Pipe",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1648113139950-4ea1237f6d84?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Printing & Publishing",
+    items: ["Barcode Stickers & Equipment", "Binding Machines", "Book"],
+    image:
+      "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Hospital & Medical Supplies",
+    items: [
+      "Personal Safety Equipment",
+      "Hospital Furniture",
+      "Temperature Instruments",
+      "Surgical Instruments",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Agriculture",
+    items: [
+      "Rice",
+      "Fresh Vegetables",
+      "Seeds",
+      "Fresh Fruit",
+      "Red Onion",
+      "Spices",
+      "Tea",
+      "Pulses",
+      "Frozen & Dried Fruit",
+      "Beans",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1535379453347-1ffd615e2e08?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Sports & Entertainment",
+    items: [
+      "Adventure Sporting & Trekking Goods",
+      "Amusement Games & Equipments",
+      "Awards",
+      "Trophies",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1653681498612-37ec55093e29?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Textiles & Fabrics",
+    items: [
+      "Acrylic Fabric",
+      "Blend Fabric",
+      "Chiffon Fabric",
+      "Coated Fabrics",
+      "Corduroy & Velvet",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1593671186131-d58817e7dee0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Mineral & Metals",
+    items: [
+      "Minerals & Refractories",
+      "Metal Products & Powder",
+      "Cast Products & Equipment",
+      "Magnets & Magnetic Devices",
+      "Metal Scrap",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1634112818993-4d9cee9719a0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Industrial Supplies",
+    items: [
+      "Measuring Tools & Equipment",
+      "Pumps & Pumping Equipment",
+      "Material Handling",
+      "Rubber & Rubber Products",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Jewelry & Gemstones",
+    items: [
+      "Magnetic Jewelry",
+      "Nose Stud",
+      "Antique Earrings",
+      "Cubic Zirconia Ring",
+      "Kids Earrings",
+      "Bracelets & Bangles",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1709909044876-82348752d5cc?q=80&w=1334&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Brass Hardware & Components",
+    items: [
+      "Brass Anchors",
+      "Brass Auto Parts",
+      "Brass Builders Hardware",
+      "Brass Cable",
+      "Brass Fasteners",
+      "Brass Terminals",
+      "Brass Nuts",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1597423498219-04418210827d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    name: "Food & Beverage",
+    items: [
+      "Aquatic Products",
+      "Asafoetida",
+      "Bean Products",
+      "Beverages",
+      "Honey Products",
+      "Health Food",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1718567210695-9167e9cc19fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];

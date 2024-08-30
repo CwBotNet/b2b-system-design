@@ -9,8 +9,11 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import { categorys } from "@/app/utils";
+import Image from "next/image";
 
 const CategorySeection = () => {
+    const limitedCategory = categorys.slice(0, 8)
     return (
         <>
             <section className="text-gray-600 body-font flex flex-col gap-y-8">
@@ -18,6 +21,7 @@ const CategorySeection = () => {
 
                 <div className="flex justify-center items-center">
                     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+
                         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                             <div>
                                 <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
@@ -58,194 +62,40 @@ const CategorySeection = () => {
                             </p> */}
                         </div>
                         <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                The doctor said
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Sportacus andrew weatherall goose Refined gentlemen super
-                                                mario des lynam alpha trion zap rowsdower.
-                                            </p>
+
+                            {limitedCategory.map((item, idx) => (
+
+                                <a
+                                    key={idx}
+                                    href="/"
+                                    aria-label="View Item"
+                                    className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
+                                >
+                                    <div className="flex flex-col h-full">
+                                        <Image
+                                            src={item.image}
+                                            width={500}
+                                            height={500}
+                                            className="object-cover w-full h-48"
+                                            alt={item.name}
+                                        />
+                                        <div className="flex-grow border border-t-0 rounded-b">
+                                            <div className="p-5">
+                                                <h6 className="mb-2 font-semibold leading-5">
+                                                    {item.name}
+                                                </h6>
+                                                <span className="flex flex-wrap">
+                                                    {item.items.map((items, idx) => (
+                                                        <p key={idx} className="text-sm text-gray-900">
+                                                            {items},
+                                                        </p>
+                                                    ))}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3182750/pexels-photo-3182750.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                Skate ipsum dolor
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">They urge you</h6>
-                                            <p className="text-sm text-gray-900">
-                                                A flower in my garden, a mystery in my panties. Heart attack
-                                                never stopped old Big Bear.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                Baseball ipsum dolor
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Bro ipsum dolor sit amet gaper backside single track, manny
-                                                Bike epic clipless. Schraeder drop gondy.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                The doctor said
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Sportacus andrew weatherall goose Refined gentlemen super
-                                                mario des lynam alpha trion zap rowsdower.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                Skate ipsum dolor
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">They urge you</h6>
-                                            <p className="text-sm text-gray-900">
-                                                A flower in my garden, a mystery in my panties. Heart attack
-                                                never stopped old Big Bear.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a
-                                href="/"
-                                aria-label="View Item"
-                                className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-                            >
-                                <div className="flex flex-col h-full">
-                                    <img
-                                        src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                        className="object-cover w-full h-48"
-                                        alt=""
-                                    />
-                                    <div className="flex-grow border border-t-0 rounded-b">
-                                        <div className="p-5">
-                                            <h6 className="mb-2 font-semibold leading-5">
-                                                Baseball ipsum dolor
-                                            </h6>
-                                            <p className="text-sm text-gray-900">
-                                                Bro ipsum dolor sit amet gaper backside single track, manny
-                                                Bike epic clipless. Schraeder drop gondy.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+                            ))}
                         </div>
                         <div className="text-center">
                             <a
