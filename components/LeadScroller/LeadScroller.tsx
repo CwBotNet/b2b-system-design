@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "../ui/card";
-import VerticalScroll from "../Animation/VerticalScroll";
+import { VerticalScroll } from "../Animation/VerticalScroll";
 import { domasticLeads, interNationLeads } from "@/app/utils";
 import Image from "next/image";
 const LeadScroller = () => {

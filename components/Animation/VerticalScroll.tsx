@@ -1,38 +1,44 @@
-"use client"
-import React from 'react'
-import { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion"
+"use client";
+import React, { useEffect, useState } from 'react';
+import { motion, useAnimation } from "framer-motion";
 
 const VerticalScroll = ({ children }: { children: React.ReactNode }) => {
-
     const controls = useAnimation();
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        const scrollAnimation = async () => {
-            while (true) {
-                await controls.start({
+        // Set the component as mounted after the initial render
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted) {
+            // Start the animation with a small delay to ensure mounting
+            const timer = setTimeout(() => {
+                controls.start({
                     y: [0, -1000],
                     transition: {
                         duration: 10,
                         repeat: Infinity,
-                        ease: "linear"
-                    }
+                        ease: "linear",
+                        repeatType: "loop",
+                    },
                 });
+            }, 20); // 50ms delay to ensure the component is mounted
 
-                await controls.start({
-                    y: 0,
-                    transition: { duration: 0 }
-                })
-            }
+            return () => clearTimeout(timer); // Clean up the timeout on unmount
         }
-        scrollAnimation()
-    }, [controls])
+    }, [isMounted, controls]);
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
         <motion.div animate={controls}>
             {children}
         </motion.div>
-    )
-}
+    );
+};
 
-export default VerticalScroll
+export { VerticalScroll };
