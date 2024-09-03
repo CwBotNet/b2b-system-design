@@ -12,22 +12,23 @@ const Footer = () => {
                             <span className="sr-only">Kutty Home Page</span>
                         </a>
                         <p className="my-4 text-xs leading-normal text-gray-600">
-                            Hosted in the EU 🇪🇺, with <strong>no user tracking</strong> scripts. Made all over the world by <a href="#" className="underline" target="_blank">17 amazing people</a>.
+                            We are one of India’s largest B2B e-commerce platforms that
+                            connects buyers and suppliers.Global Exposure, 24X7 live showroom
                         </p>
                     </div>
                     <nav className="col-span-1 md:col-span-1 lg:col-span-2">
                         <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Product</p>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Features</a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Pricing</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/membership">Features</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/membership">Pricing</a>
                         <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Feedback</a>
                         <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">FAQs</a>
                     </nav>
                     <nav className="col-span-2 md:col-span-1 lg:col-span-2">
                         <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Support</p>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Chat</a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#"> Email Support </a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">GDPR</a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#"> Help </a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/contact">Chat</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/contact"> Email Support </a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/contact">GDPR</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/contact"> Help </a>
                     </nav>
                     <nav className="col-span-1 md:col-span-1 lg:col-span-2">
                         <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Resources</p>
@@ -38,14 +39,17 @@ const Footer = () => {
                     </nav>
                     <nav className="col-span-1 md:col-span-1 lg:col-span-2">
                         <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Company</p>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">About Us</a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Privacy</a>
-                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Terms</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/about">About Us</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/terms">Privacy</a>
+                        <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="/terms">Terms</a>
                         <a className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-purple-800" href="#">Status</a>
                     </nav>
                 </div>
                 <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-100 md:flex-row md:items-center">
-                    <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">Built by Full Stack Dev Raj Sahani</p>
+                    <p className="mb-2 text-xs text-left text-gray-600 md:mb-0">Build by Full Stack Dev <Link href={"https://twitter.com/Raj_sahani22"} target="_blank" className="hover:underline">
+                        Raj Sahani
+                    </Link>
+                    </p>
                     <p className="mb-0 text-xs text-left text-gray-600 md:mb-0">Copyright &copy;
                         <Link href={"#"} className="cursor-pointer hover:underline">
                             2024 Indian Export Web Mart
