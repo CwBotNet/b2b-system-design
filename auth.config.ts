@@ -24,7 +24,7 @@ export default {
             email,
           });
 
-          if (!user || user.password) return null;
+          if (!user || !user.password) return null;
 
           const passwordMatch = await passwordHashCheck(
             password,
@@ -35,6 +35,7 @@ export default {
             // return user object with their profile data
             return user;
           }
+          return user;
         }
         return null;
       },

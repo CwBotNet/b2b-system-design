@@ -30,6 +30,9 @@ import { LoginSchema } from "@/schemas"
 import { useState } from "react"
 import axios from "axios"
 import FormError from "../form-error"
+import { signIn } from "@/auth"
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
+import { login } from "@/actions/login"
 
 export const description =
     "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account."
@@ -47,14 +50,14 @@ export function LoginForm() {
 
 
 
-        setError("")
-
-        const response = await axios.post("/api/auth/sign-in", values)
-
-        console.log(response)
-        if (!response.data.success) {
-            setError(response.data.error)
+        // setError("")
+        login(values).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
         }
+        )
+
 
 
     }
