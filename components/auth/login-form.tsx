@@ -33,6 +33,7 @@ import FormError from "../form-error"
 import { signIn } from "@/auth"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 import { login } from "@/actions/login"
+import OauthSignin from "./Oauth-signin"
 
 export const description =
     "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account."
@@ -47,9 +48,6 @@ export function LoginForm() {
         }
     })
     const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-
-
-
         // setError("")
         login(values).then((res) => {
             console.log(res)
@@ -58,9 +56,9 @@ export function LoginForm() {
         }
         )
 
-
-
     }
+
+
 
 
     return (
@@ -120,9 +118,7 @@ export function LoginForm() {
                             </Button>
                         </form>
                     </Form>
-                    <Button variant="outline" className="w-full">
-                        Login with Google
-                    </Button>
+                    <OauthSignin />
                 </div>
                 <div className="mt-4 text-center text-sm">
                     Don&apos;t have an account?{" "}

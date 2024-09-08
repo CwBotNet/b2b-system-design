@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <HomeNav />
-      <section className="min-h-screen bg-gray-50">
+      <section className="min-h-screen bg-gray-50 ">
         <main className=" flex flex-col items-center justify-center h-full gap-y-8 space-y-56">
           <HeroSection />
           <WebMarketingSection />
