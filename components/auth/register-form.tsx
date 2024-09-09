@@ -4,6 +4,8 @@ import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import axios from "axios"
+import { useForm } from "react-hook-form"
+import { useTransition, useState, startTransition } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -25,16 +27,19 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
+
 import { RegisterSchema } from "@/schemas"
-import { useForm } from "react-hook-form"
-import FormError from "../form-error"
-import { useState } from "react"
+import OauthSignin from "./Oauth-signin"
+import FormError from "@/components/form-error"
+import FormSuccess from "../form-success"
 
 
 export const description =
     "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account"
 
 export function RegisterForm() {
+
+    const [isPending, startTransition] = useTransition()
 
     const [error, setError] = useState<string | undefined>("")
 
@@ -52,13 +57,18 @@ export function RegisterForm() {
     const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
 
         setError("")
+        setSuccess("")
+        startTransition(async () => {
 
-        const response = await axios.post("/api/auth/register", values)
 
-        if (!response.data.success) {
-            setError(response.data.error)
-        }
+            const response = await axios.post("/api/auth/register", values)
 
+            if (!response.data.success) {
+                setError(response.data.error)
+            }
+
+            setSuccess("Confirmation email sent!")
+        })
     }
 
     return (
@@ -84,7 +94,7 @@ export function RegisterForm() {
                                         <FormItem>
                                             <FormLabel>Full Name</FormLabel>
                                             <FormControl>
-                                                <Input type="text" placeholder="John doe" {...field} />
+                                                <Input disabled={isPending} type="text" placeholder="John doe" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -102,7 +112,7 @@ export function RegisterForm() {
                                         <FormItem>
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
-                                                <Input type="email" placeholder="john.doe@mail.com" {...field} />
+                                                <Input disabled={isPending} type="email" placeholder="john.doe@mail.com" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -119,7 +129,7 @@ export function RegisterForm() {
                                         <FormItem>
                                             <FormLabel>Password</FormLabel>
                                             <FormControl>
-                                                <Input type="password" placeholder="********" {...field} />
+                                                <Input disabled={isPending} type="password" placeholder="********" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -127,16 +137,16 @@ export function RegisterForm() {
                                     }
                                 />
                             </div>
+                            {/* success msg */}
+                            <FormSuccess message={success} />
                             {/* error msg */}
                             <FormError message={error} />
-                            <Button type="submit" className="w-full">
+                            <Button disabled={isPending} type="submit" className="w-full">
                                 Create an account
                             </Button>
                         </form>
                     </Form>
-                    <Button variant="outline" className="w-full">
-                        Sign up with GitHub
-                    </Button>
+                    <OauthSignin disabled={isPending} method="Sign Up" />
                 </div>
                 <div className="mt-4 text-center text-sm">
                     Already have an account?{" "}

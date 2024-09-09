@@ -27,7 +27,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { LoginSchema } from "@/schemas"
-import { useState } from "react"
+import { useState, useTransition } from "react"
 import axios from "axios"
 import FormError from "../form-error"
 import { signIn } from "@/auth"
@@ -40,6 +40,8 @@ export const description =
 
 export function LoginForm() {
     const [error, setError] = useState<string | undefined>("")
+    const [isPending, startTransition] = useTransition()
+
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
         defaultValues: {
@@ -48,13 +50,16 @@ export function LoginForm() {
         }
     })
     const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
-        // setError("")
-        login(values).then((res) => {
-            console.log(res)
-        }).catch((err) => {
-            console.log(err)
-        }
-        )
+        setError("")
+        startTransition(() => {
+            login(values).then((res) => {
+                console.log(res)
+                setError(res?.error)
+            }).catch((err) => {
+                console.log(err)
+            }
+            )
+        })
 
     }
 
@@ -82,7 +87,7 @@ export function LoginForm() {
                                         <FormItem>
                                             <FormLabel>Email</FormLabel>
                                             <FormControl>
-                                                <Input type="email" placeholder="john.doe@mail.com" {...field} />
+                                                <Input disabled={isPending} type="email" placeholder="john.doe@mail.com" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -99,7 +104,7 @@ export function LoginForm() {
                                         <FormItem>
                                             <FormLabel>Password</FormLabel>
                                             <FormControl>
-                                                <Input type="password" placeholder="******" {...field} />
+                                                <Input disabled={isPending} type="password" placeholder="******" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -118,7 +123,7 @@ export function LoginForm() {
                             </Button>
                         </form>
                     </Form>
-                    <OauthSignin />
+                    <OauthSignin disabled={isPending} method="Login" />
                 </div>
                 <div className="mt-4 text-center text-sm">
                     Don&apos;t have an account?{" "}
