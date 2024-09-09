@@ -1,7 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, Suspense } from "react"
 
 import { Button } from "../ui/button"
 import FormError from "@/components/form-error"
@@ -40,26 +40,26 @@ export const NewVerificationForm = () => {
 
 
     return (
-        <div className="flex flex-col space-y-12 justify-center items-center h-full w-full">
-            <h1 className="text-2xl font-medium">Email Verification</h1>
-            {/* From Uiverse.io by Javierrocadev */}
+        <Suspense>
+            <div className="flex flex-col space-y-12 justify-center items-center h-full w-full">
+                <h1 className="text-2xl font-medium">Email Verification</h1>
+                {!sucess && !error &&
 
-            {!sucess && !error &&
-
-                <div className="flex flex-row gap-2">
-                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
-                    <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
-                </div>
-            }
-            <FormSuccess message={sucess} />
-            {!sucess && <FormError message={error} />}
-            <FormError message="" />
-            <Button variant={"link"}>
-                <Link href={"/sign-in"}>
-                    Back to Login
-                </Link>
-            </Button>
-        </div>
+                    <div className="flex flex-row gap-2">
+                        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+                        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.3s]"></div>
+                        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:.7s]"></div>
+                    </div>
+                }
+                <FormSuccess message={sucess} />
+                {!sucess && <FormError message={error} />}
+                <FormError message="" />
+                <Button variant={"link"}>
+                    <Link href={"/sign-in"}>
+                        Back to Login
+                    </Link>
+                </Button>
+            </div>
+        </Suspense>
     )
 } 
