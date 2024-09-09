@@ -5,7 +5,10 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { saltAndHashPassword } from "@/utils/password";
 import { genrateVerificationToken } from "@/lib/token";
-import { sendVerificationEmail } from "@/lib/mail";
+import {
+  sendVerificationEmail,
+  sendVerificationEmailByGoogle,
+} from "@/lib/mail";
 export const POST = async (req: Request, res: Response) => {
   const body: z.infer<typeof RegisterSchema> = await req.json();
 
@@ -48,12 +51,23 @@ export const POST = async (req: Request, res: Response) => {
 
   const verificationToken = await genrateVerificationToken(body.email);
 
-  const result = await sendVerificationEmail(
+  // send verification by resend
+  // const result = await sendVerificationEmail(
+  //   verificationToken.email,
+  //   verificationToken.token
+  // );
+
+  // send verification by gmail
+
+  const resultGmail = await sendVerificationEmailByGoogle(
     verificationToken.email,
     verificationToken.token
   );
 
-  console.log(result);
 
-  return NextResponse.json({ success: "Email verification sent. 👍", message: "User Created", user });
+  return NextResponse.json({
+    success: "Email verification sent. 👍",
+    message: "User Created",
+    user,
+  });
 };

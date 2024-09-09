@@ -6,7 +6,7 @@ const pass = process.env.GOOGLE_SMTP_PASSWORD;
 export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: email,
-    pass: pass,
+    user: `${email}`,
+    pass: `${pass}`,
   },
 });
