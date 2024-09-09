@@ -55,5 +55,5 @@ export const POST = async (req: Request, res: Response) => {
 
   console.log(result);
 
-  return NextResponse.json({ success: true, message: "User Created", user });
+  return NextResponse.json({ success: "Email verification sent. 👍", message: "User Created", user });
 };

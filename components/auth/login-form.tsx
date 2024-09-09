@@ -34,12 +34,14 @@ import { signIn } from "@/auth"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 import { login } from "@/actions/login"
 import OauthSignin from "./Oauth-signin"
+import FormSuccess from "../form-success"
 
 export const description =
     "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account."
 
 export function LoginForm() {
     const [error, setError] = useState<string | undefined>("")
+    const [success, setSuccess] = useState<string | undefined>("")
     const [isPending, startTransition] = useTransition()
 
     const form = useForm<z.infer<typeof LoginSchema>>({
@@ -51,10 +53,12 @@ export function LoginForm() {
     })
     const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
         setError("")
+        setSuccess("")
         startTransition(() => {
             login(values).then((res) => {
                 console.log(res)
                 setError(res?.error)
+                setSuccess(res?.success)
             }).catch((err) => {
                 console.log(err)
             }
@@ -117,8 +121,9 @@ export function LoginForm() {
                                     </Link>
                                 </div>
                             </div>
+                            <FormSuccess message={success} />
                             <FormError message={error} />
-                            <Button type="submit" className="w-full">
+                            <Button disabled={isPending} type="submit" className="w-full">
                                 Login
                             </Button>
                         </form>

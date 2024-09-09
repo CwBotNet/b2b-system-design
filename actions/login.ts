@@ -2,6 +2,8 @@
 
 import { signIn } from "@/auth";
 import { getUserFromDb } from "@/data/user";
+import { sendVerificationEmail } from "@/lib/mail";
+import { genrateVerificationToken } from "@/lib/token";
 
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { LoginSchema } from "@/schemas";
@@ -16,8 +18,21 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   const { email, password, code } = validateFields.data;
-//   const existingUser = await getUserFromDb(email as );
-  
+  const existingUser = await getUserFromDb({ email });
+
+  if (!existingUser?.emailVerified) {
+    const verificationToken = await genrateVerificationToken(
+      existingUser?.email as string
+    );
+
+    await sendVerificationEmail(
+      verificationToken.email,
+      verificationToken.token
+    );
+
+    return {success: "Confirmation email sent. 👍"}
+  }
+
   try {
     await signIn("credentials", {
       email,

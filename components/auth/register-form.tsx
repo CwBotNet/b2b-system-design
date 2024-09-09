@@ -66,8 +66,7 @@ export function RegisterForm() {
             if (!response.data.success) {
                 setError(response.data.error)
             }
-
-            setSuccess("Confirmation email sent!")
+            setSuccess(response.data.success)
         })
     }
 
