@@ -55,6 +55,18 @@ export default auth(async (req) => {
     return;
   }
 
+  if (isAuthProtectedRoute) {
+    if (isLoggedIn) {
+      return;
+    }
+
+    return Response.redirect(new URL("/sign-in", nextUrl));
+  }
+
+  if (!isLoggedIn && !isPublicRoute) {
+    return Response.redirect(new URL("/sign-in", nextUrl));
+  }
+
   // Route protection for both USER and ADMIN
   if (isUserAdminProtectedRoute) {
     if (!isLoggedIn) {
@@ -82,17 +94,6 @@ export default auth(async (req) => {
     // Redirect USER and ADMIN to their shared dashboard
     let redirectUrl = DEFAULT_LOGIN_REDIRECT;
     return NextResponse.redirect(new URL(redirectUrl, nextUrl));
-  }
-  if (isAuthProtectedRoute) {
-    if (isLoggedIn) {
-      return;
-    }
-
-    return Response.redirect(new URL("/sign-in", nextUrl));
-  }
-
-  if (!isLoggedIn && !isPublicRoute) {
-    return Response.redirect(new URL("/sign-in", nextUrl));
   }
 
   return;
