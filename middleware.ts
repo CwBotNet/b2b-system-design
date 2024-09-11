@@ -55,7 +55,6 @@ export default auth(async (req) => {
     return;
   }
 
-
   if (!isLoggedIn && !isPublicRoute) {
     return Response.redirect(new URL("/sign-in", nextUrl));
   }
@@ -76,6 +75,7 @@ export default auth(async (req) => {
 
   // Admin Route Protection (e.g., only SuperAdmin can access)
   if (isAuthProtectedRoute) {
+    console.log("user middlware");
     if (!isLoggedIn) {
       return NextResponse.redirect(new URL("/sign-in", req.url)); // Redirect to sign-in if not logged in
     }
@@ -85,7 +85,7 @@ export default auth(async (req) => {
     }
 
     // Redirect USER and ADMIN to their shared dashboard
-    let redirectUrl = "/not-found";
+    let redirectUrl = DEFAULT_LOGIN_REDIRECT;
     return NextResponse.redirect(new URL(redirectUrl, nextUrl));
   }
 
