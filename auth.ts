@@ -41,7 +41,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (!token.sub) return null;
 
       const existingUser = await getUserById({ id: token?.sub });
-      // console.log(existingUser);
 
       if (!existingUser) return token;
 

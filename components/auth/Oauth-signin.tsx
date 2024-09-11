@@ -5,9 +5,7 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 const OauthSignin = ({ method, disabled }: { method: "Sign Up" | "Login", disabled: boolean }) => {
 
     const handelOauth = (provider: "google") => {
-        signIn(provider, {
-            callbackUrl: DEFAULT_LOGIN_REDIRECT
-        })
+        signIn(provider)
     }
 
     return (

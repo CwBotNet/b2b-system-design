@@ -16,37 +16,63 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import LogoutBtn from "../auth/logout-btn";
+import { Badge } from "../ui/badge";
+import { auth } from "@/auth";
 
 
-const AdminNav = () => {
+export interface UserDataInterface {
+    id?: string
+    name: string
+    email?: string
+    role: string
+    image?: string
+}
+
+const AdminNav = async () => {
+    const session = await auth()
+
+    const data = session?.user
     return (
         <>
-            <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+            <header className="sticky top-0 z-50 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
                 <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                     <Link
-                        href="/Admin/dashboard"
+                        href="/admin/dashboard"
                         className="flex items-center gap-2 text-lg font-semibold md:text-base"
                     >
                         <Package2 className="h-6 w-6" />
                         <span className="sr-only">Acme Inc</span>
                     </Link>
                     <Link
-                        href="/Admin/dashboard"
+                        href="/admin/dashboard"
                         className="text-foreground transition-colors hover:text-foreground"
                     >
                         Dashboard
                     </Link>
                     <Link
-                        href="/Admin/Members"
+                        href="/admin/dashboard/members"
                         className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                         Members
                     </Link>
                     <Link
-                        href="/Admin/company"
+                        href="/admin/dashboard/companys"
                         className="text-muted-foreground transition-colors hover:text-foreground"
                     >
                         Companys
+                    </Link>
+                    <Link
+                        href="/admin/dashboard/products"
+                        className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        Products
+                    </Link>
+                    <Link
+                        href="/admin/dashboard/setting"
+                        className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        Setting
                     </Link>
                 </nav>
                 <Sheet>
@@ -113,17 +139,28 @@ const AdminNav = () => {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="secondary" size="icon" className="rounded-full">
-                                <CircleUser className="h-5 w-5" />
-                                <span className="sr-only">Toggle user menu</span>
+
+                                {
+                                    data?.image ?
+                                        <img src={`${data?.image}`} className="rounded-full" />
+                                        :
+                                        <h1>{data?.name?.toUpperCase().charAt(0)}</h1>
+                                }
+
+                                {/* <span className="sr-only">Toggle user menu</span> */}
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                            <DropdownMenuLabel>
+                                <Badge>{data?.role}</Badge>
+                            </DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>Settings</DropdownMenuItem>
                             <DropdownMenuItem>Support</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem>Logout</DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <LogoutBtn />
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>

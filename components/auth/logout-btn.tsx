@@ -1,23 +1,21 @@
+"use client"
+import { signOut } from "next-auth/react";
 
-import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 
 
 
-const LogoutBtn = () => {
-    const handleLogout = async () => {
-        "use server"
-        await signOut()
-    }
+const LogoutBtn = ({ className }: {
+    className?: string
+}) => {
 
     return (
-        <form action={handleLogout}>
 
-            <Button type="submit">
-                logout
-            </Button>
-        </form>
+        <button onClick={() => signOut()} className={cn("cursor-pointer", className)}>
+            Logout
+        </button>
     );
 }
 

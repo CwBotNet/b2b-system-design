@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -9,15 +11,21 @@ export const metadata: Metadata = {
   description: "A B2B service agency",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const session = await auth()
+
   return (
     <html lang="en">
+
       <body className={montserrat.className}>
-        {children}
+        <SessionProvider session={session}>
+          {children}
+        </SessionProvider>
       </body>
 
     </html>
