@@ -35,6 +35,7 @@ export const userAdminProctedRoutes = [
   "/user/admin/dashboard",
   "/user/admin/dashboard/company",
   "/user/admin/dashboard/product",
+  "/user/admin/dashboard/setting",
 ];
 
 export const adminProtectedRoute = [
