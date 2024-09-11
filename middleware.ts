@@ -55,13 +55,6 @@ export default auth(async (req) => {
     return;
   }
 
-  if (isAuthProtectedRoute) {
-    if (isLoggedIn) {
-      return;
-    }
-
-    return Response.redirect(new URL("/sign-in", nextUrl));
-  }
 
   if (!isLoggedIn && !isPublicRoute) {
     return Response.redirect(new URL("/sign-in", nextUrl));
@@ -92,7 +85,7 @@ export default auth(async (req) => {
     }
 
     // Redirect USER and ADMIN to their shared dashboard
-    let redirectUrl = DEFAULT_LOGIN_REDIRECT;
+    let redirectUrl = "/not-found";
     return NextResponse.redirect(new URL(redirectUrl, nextUrl));
   }
 
